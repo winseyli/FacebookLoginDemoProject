@@ -11,6 +11,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
+#import "RCTLinkingManager.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation AppDelegate
