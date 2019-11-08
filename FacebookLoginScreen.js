@@ -5,15 +5,39 @@ import {
   ScrollView,
   View,
   Text,
+  Button,
   StatusBar,
+  Alert,
 } from 'react-native';
+import { LoginManager } from "react-native-fbsdk";
+
+const onLoginPress = () => {
+  LoginManager.logInWithPermissions(["public_profile"]).then(
+    function(result) {
+      if (result.isCancelled) {
+        console.log("Login cancelled");
+      } else {
+        console.log(
+          "Login success with permissions: " +
+            result.grantedPermissions.toString()
+        );
+      }
+    },
+    function(error) {
+      console.log("Login fail with error: " + error);
+    }
+  );
+}
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <Text>123</Text>
+        <Button
+          title="Login"
+          onPress={onLoginPress}
+        />
       </SafeAreaView>
     </>
   );
