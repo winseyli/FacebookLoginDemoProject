@@ -12,7 +12,7 @@ import {
 import { LoginManager } from "react-native-fbsdk";
 
 const onLoginPress = () => {
-  LoginManager.logInWithPermissions(["public_profile"]).then(
+  LoginManager.logInWithPermissions(["public_profile", "email", "user_gender", "user_location"]).then(
     function(result) {
       if (result.isCancelled) {
         console.log("Login cancelled");
